@@ -1,0 +1,50 @@
+
+<h2 class="pl-5">
+  Editar CommandLine
+</h2>
+
+<div class="container pt-3">
+
+  <form class="form-horizontal" role="form" #FormEdit>
+
+    <div class="form-group">
+
+      <label for="ejemplo_email_3" class="col-lg-auto control-label ">Name CommandLine</label>
+
+      <div class="col-lg-10">
+        <input type="text" class="form-control"
+        placeholder="Add the name of the command line"
+        [value]='commandLineToEdit["NameCommandLine"]'
+        (change)="changeName($event)"
+        >
+      </div>
+
+    </div>
+
+
+      <div class="form-group">
+
+        <label for="ejemplo_password_3" class="col-lg-auto control-label">Comment</label>
+
+        <div class="col-lg-10">
+          <input type="text" class="form-control"
+          [value]='commandLineToEdit["Comment"]'
+          placeholder="Add a Comment"
+          (change)="changeComment($event)">
+        </div>
+
+      </div>
+
+    <div class="form-group">
+
+      <div class="col-lg-offset-2 col-lg-10">
+        <button  class="btn btn-lg btn-success text-white mr-1" (click)="sendToModifyObject()">Entrar</button>
+
+        <button type="button"  class="btn btn-lg btn-success text-white" (click)="swichInterface()">Atras</button>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

@@ -1,0 +1,23 @@
+
+<div class="container">
+
+  <form #FormLoging="ngForm" class="form-signin border-danger">
+
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Create Command Line</h1>
+  
+    <label for="NameLine" class="sr-only">Name Line</label>
+    <input type="text"  class="form-control" placeholder="Name CommandLine" name="NameCommand" [(ngModel)]="modelLine.NameCommanLine">
+    <br>
+
+    <label for="Commnad" class="sr-only">Comment</label>
+    <input type="text"  class="form-control" placeholder="Comment" name="text" [(ngModel)]="modelLine.Comment">
+    <br>
+  
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="registerAnLine()">Crear </button>
+    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+  
+  </form>
+
+</div>
+ 
