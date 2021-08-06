@@ -1,12 +1,8 @@
-<h1 class="p-2">
-  vista works!
-</h1>
+<h1 class="p-2">vista works!</h1>
 
 <div class="container pt-4">
-
   <div>
-
-    <div class="card w-100  p-1">
+    <div class="card w-100 p-1">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
@@ -16,45 +12,45 @@
       </div>
     </div>
 
-        <div *ngIf="OnModeVista"  class="row" >
-          <div *ngFor="let item of commandLines" class="border border-primary">
+    <div *ngIf="OnModeVista" class="row">
+      <div *ngFor="let item of commandLines" class="border border-primary">
+        <div class="card m-1">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ item["NameCommandLine"]  | uppercase | slice: 0:1 }}
+              {{ item["NameCommandLine"]  | lowercase | slice: 1 }}
+            </h5>
+            <p class="card-text">{{ item["Comment"] }}.</p>
 
-            <div class="card m-1 ">
-              <div class="card-body">
-                <h5 class="card-title">
-                  {{ item["NameCommandLine"]   | slice: 0:1 | uppercase }}{{ item["NameCommandLine"] | slice: 1 | lowercase }}
-                </h5>
-
-                <p class="card-text">{{ item["Comment"] }}.</p>
-
-                <div class="container row-2">
-                  <a
-                    class="btn btn-danger col-auto mr-1" (click)="deleteCommanLine(item)"> Deleted
-                  </a>
-                  <a
-                    [routerLink]
-                    class="btn btn-secondary col-auto"
-                    (click)="swichInterface(item)"
-                  >Editar</a
-                  >
-                </div>
-              </div>
+            <div class="container row-2">
+              <a
+                class="btn btn-danger col-auto mr-1"
+                (click)="deleteCommanLine(item)"
+              >
+                Deleted
+              </a>
+              <a
+                [routerLink]
+                class="btn btn-secondary col-auto"
+                (click)="swichInterface(item)"
+                >Editar</a
+              >
             </div>
           </div>
         </div>
-
-        </div>
-
-      <div *ngIf="!OnModeVista">
-        <app-formeditline
-          (clickToEdit)="swichInterface()"
-          [commandLineToEdit]="objectSelectedToEdit"
-          (clickToModifyObject)="UpdateCommandLine($event)"
-        ></app-formeditline>
       </div>
-
+    </div>
   </div>
 
-  <div class="m-2" *ngIf="isEmptyCommandLines">
-    <h4>No hay Comandos</h4>
+  <div *ngIf="!OnModeVista">
+    <app-formeditline
+      (clickToEdit)="swichInterface()"
+      [commandLineToEdit]="objectSelectedToEdit"
+      (clickToModifyObject)="UpdateCommandLine($event)"
+    ></app-formeditline>
   </div>
+</div>
+
+<div class="m-2" *ngIf="isEmptyCommandLines">
+  <h4>No hay Comandos</h4>
+</div>
